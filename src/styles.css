@@ -1,0 +1,104 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{height: 99.7% !important;}		
+.onlineuser i{color: #09c709;}
+.offlineuser i{color: #aaa;}
+.mat-tooltip {
+	/*color: #000 !important;
+	background-color: #598ba9 !important;
+	border: 1px solid #000; */
+	color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.71) !important;
+    border: 1px solid #fff;
+    font-size: 12px !important;
+}
+td.blockeduserlist{
+	cursor: pointer;
+	color: #3c8dbc;
+}
+td.modal-image img{
+	border: 2px solid;
+	border-radius: 50%;
+}
+.blocked_users_list .table>tbody>tr>td,.reported_wishes_list .table>tbody>tr>td{
+	border: none !important;
+}
+.blocked_users_list .modal-header, .reported_wishes_list .modal-header{
+	background-color: #3c8dbc;
+	color: #fff;
+}
+.blocked_users_list .modal-body, .reported_wishes_list .modal-body{
+	background-color: #ecf0f5;
+}
+.width5{width: 5%;} .width10{width: 10%;} .width15{width: 15%;} .width20{width: 20%;} .width25{width: 25%;} .width30{width: 30%;} .width35{width: 35%;} .width40{width: 40%;} .width45{width: 45%;} .width50{width: 50%;} .width55{width: 55%;} .width60{width: 60%;}
+
+mat-ink-bar.mat-ink-bar{
+	width: 160px !important;
+}
+.height50{
+	height: 50px;
+}
+.bing-image-container{
+	width: 150px;
+    height: 150px;
+    margin-left: 4%;
+    overflow: hidden;
+    border: 3px solid #e1e1e1;
+    border-radius: 3%;
+    background-color: #fff;
+
+    transition: width 2s, height 4s linear;
+    -moz-transition: width 2s, height 4s linear; /* Firefox 4 */
+    -webkit-transition: width 2s, height 4s linear; /* Safari and Chrome */
+    -o-transition: width 2s, height 4s linear; /* Opera */
+    -ms-transition: width 2s, height 4s linear; /* Explorer 10 */
+}
+.bing-image-container:hover {
+    border: 3px solid #000;
+    height: auto;
+    width: auto;
+    /*min-height: 150px;
+    min-width: 150px; */
+}
+.bing-image-clearfix{
+	margin: 5% 0;
+}
+.jvectormap-label{
+    position: absolute;
+}
+.clickable{
+    cursor: pointer;
+}
+.clickable:hover span.bg-aqua,
+.clickable:hover span.bg-red,
+.clickable:hover span.bg-green,
+.clickable:hover span.bg-yellow{
+    background-color: #fff !important;
+    border: 1px solid;
+}
+div.clickable:hover span.bg-aqua{
+    color: #00c0ef !important;
+}
+div.clickable:hover span.bg-red{
+    color: #dd4b39 !important;
+}
+div.clickable:hover span.bg-green{
+    color: #00a65a !important;
+}
+div.clickable:hover span.bg-yellow{
+    color: #f39c12 !important;
+}
+.dashboard_widgets{
+    height: 270px;
+}
+.img-preview{
+    width: 300px;
+    border: 3px solid #e1e1e1;
+    border-radius: 3%;
+}
+.margin-right-5{
+    margin-right: 5px;
+}
+.users-list>li img {
+    max-width: 85% !important;
+}

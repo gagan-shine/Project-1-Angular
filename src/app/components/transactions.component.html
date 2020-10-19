@@ -1,0 +1,114 @@
+<div class="wrapper">
+    <sidebar></sidebar>
+    <div class="content-wrapper">
+      <section class="content-header">
+        <h1> Office Transactions <small>List</small> </h1>      
+          <div class="form-group" style="float: right;">
+            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#upload_csv"> + Add Transaction</button>
+          </div>
+
+      </section> <!-- /.content-header -->
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              
+              <div class="box-body table-responsive no-padding">
+              <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+
+                <thead>
+                <tr>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="date">Date</mfDefaultSorter>
+                    </th>
+                    <th style="width: 50%">
+                        <mfDefaultSorter by="description">Description</mfDefaultSorter>
+                    </th>
+                    <th style="width: 10%">
+                        <mfDefaultSorter by="credit">Credit</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="debit">Debit</mfDefaultSorter>
+                    </th>
+                    <th style="width: 20%">
+                        <mfDefaultSorter by="balance">Running Balance</mfDefaultSorter>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of mf.data">                    
+                    <td>{{item.createdAt | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{item.description}}</td>
+                    <td><span *ngIf="item.type==1">{{item.amount}}</span></td>
+                    <td><span *ngIf="item.type==0">{{item.amount}}</span></td>
+                    <td>{{item.balance}}</td>
+                </tr>
+                </tbody>               
+                
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+
+                <div class="modal fade" id="upload_csv">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">New Transaction</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        <div *ngIf="user_edit_success" class="alert alert-dismissable  bg-light-blue"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{user_edit_success}} </div>
+                        <div *ngIf="user_edit_error" class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> {{user_edit_error}} </div>
+                        <!-- <form role="form"  enctype="multipart/form-data" (submit)="upload_file()"> -->
+                        <form (submit)="create_transaction(params)" name="create_transaction">
+                          <div class="box-body">
+                            <div class="form-group">
+                              <label>Transaction Type</label>
+                              <select class="form-control" [(ngModel)]="params.type" name="type">
+                                <option [ngValue]="1">Credit</option>
+                                <option [ngValue]="0">Debit</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label>Amount</label>
+                              <input type="text" class="form-control" [(ngModel)]="params.amount" name="amount">
+                            </div>
+                            <div class="form-group">
+                              <label>Description</label>
+                              <textarea type="text" class="form-control" [(ngModel)]="params.description" name="description" ></textarea>
+                            </div>
+                            <div class="form-group">
+                              <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- /.content -->
+    </div> <!-- /.content-wrapper -->
+
+</div><!-- ./wrapper -->
+
+
+
+
+
+
+
+
+
+
